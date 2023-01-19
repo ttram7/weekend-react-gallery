@@ -2,6 +2,7 @@ import React from 'react';
 import './App.css';
 import {useState} from 'react';
 import axios from 'axios';
+import GalleryList from '../GalleryList/GalleryList';
 
 function App() {
   const [photosList, setPhotosList] = useState([]);
