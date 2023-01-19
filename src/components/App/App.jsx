@@ -1,7 +1,24 @@
 import React from 'react';
 import './App.css';
+import {useState} from 'react';
+import axios from 'axios';
 
 function App() {
+  const [photosList, setPhotosList] = useState([]);
+
+  const getPhotos = () => {
+    axios({
+      method: 'GET',
+      url: '/gallery'
+    })
+    .then((response) => {
+      setPhotosList(response.data);
+    })
+    .catch(function(error){
+      console.log('error on GET:', error)
+    });
+  };
+
     return (
       <div className="App">
         <header className="App-header">
