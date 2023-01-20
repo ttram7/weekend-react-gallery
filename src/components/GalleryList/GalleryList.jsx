@@ -4,7 +4,7 @@ function GalleryList({list}) {
     return (
         <>
             {list.map(photo => 
-                <GalleryItem photo={photo} />
+                (<GalleryItem photo={photo} />)
             )}
         </>
     )

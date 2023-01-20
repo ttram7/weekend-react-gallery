@@ -1,0 +1,10 @@
+img.visible {
+    /*visibility: visible;*/
+    opacity: 100;
+    
+}
+
+img.hidden {
+    /*visibility: hidden;*/
+    opacity: 0;
+}
