@@ -2,7 +2,7 @@ import {useState} from 'react'
 import axios from 'axios';
 import './/GalleryItem.css';
 
-function GalleryItem({photo}) {
+function GalleryItem({photo, getPhotos}) {
     const [cssClass, setCssClass] = useState('visible');
     const [likeCount, setLikeCount] = useState(0);
 
@@ -16,22 +16,23 @@ function GalleryItem({photo}) {
         }
     }
 
-    //PUT request
-    const  increaseLikes = (id) => {
-        console.log('in increaseLikes');
-        
-        axios({
-            method: 'PUT',
-            url: `/gallery/like/${id}`,
-        })
-        .then((response) => {
-            console.log('PUT response from db: ', response)
-            //getPhotos();
-        })
-        .catch((error) => {
-            console.log('error making PUT request: ', error);
-        });
-    }
+//PUT request
+const  increaseLikes = (id) => {
+    console.log('in increaseLikes');
+    
+    axios({
+        method: 'PUT',
+        url: `/gallery/like/${id}`,
+    })
+    .then((response) => {
+        console.log('PUT response from db: ', response)
+        getPhotos();
+    })
+    .catch((error) => {
+        console.log('error making PUT request: ', error);
+    });
+}
+    
 
     return(
         <div>
